@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolas D. Lugtu IV - Data Analytics Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #9ca3af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .floating-element {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .float-1 {
+            animation: float1 20s ease-in-out infinite;
+        }
+        
+        .float-2 {
+            animation: float2 25s ease-in-out infinite;
+        }
+        
+        .float-3 {
+            animation: float3 30s ease-in-out infinite;
+        }
+        
+        .float-4 {
+            animation: float4 22s ease-in-out infinite;
+        }
+        
+        .float-5 {
+            animation: float5 28s ease-in-out infinite;
+        }
+        
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            25% { transform: translateY(-100px) translateX(50px) rotate(90deg); }
+            50% { transform: translateY(-50px) translateX(100px) rotate(180deg); }
+            75% { transform: translateY(-150px) translateX(-30px) rotate(270deg); }
+        }
+        
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            33% { transform: translateY(-80px) translateX(-70px) rotate(120deg); }
+            66% { transform: translateY(-120px) translateX(80px) rotate(240deg); }
+        }
+        
+        @keyframes float3 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            20% { transform: translateY(-60px) translateX(40px) rotate(72deg); }
+            40% { transform: translateY(-100px) translateX(-50px) rotate(144deg); }
+            60% { transform: translateY(-40px) translateX(90px) rotate(216deg); }
+            80% { transform: translateY(-130px) translateX(-20px) rotate(288deg); }
+        }
+        
+        @keyframes float4 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            30% { transform: translateY(-90px) translateX(-60px) rotate(108deg); }
+            60% { transform: translateY(-70px) translateX(70px) rotate(216deg); }
+        }
+        
+        @keyframes float5 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            25% { transform: translateY(-110px) translateX(30px) rotate(90deg); }
+            50% { transform: translateY(-80px) translateX(-80px) rotate(180deg); }
+            75% { transform: translateY(-140px) translateX(60px) rotate(270deg); }
+        }
+        
+        .pulse-element {
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen relative overflow-x-hidden">
+    <!-- Floating Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <!-- Floating Circles -->
+        <div class="floating-element float-1 w-32 h-32 bg-white rounded-full top-20 left-10"></div>
+        <div class="floating-element float-2 w-24 h-24 bg-white rounded-full top-40 right-20"></div>
+        <div class="floating-element float-3 w-40 h-40 bg-white rounded-full top-60 left-1/3"></div>
+        <div class="floating-element float-4 w-20 h-20 bg-white rounded-full bottom-40 right-10"></div>
+        <div class="floating-element float-5 w-36 h-36 bg-white rounded-full bottom-20 left-20"></div>
+        
+        <!-- Floating Squares -->
+        <div class="floating-element float-2 w-16 h-16 bg-white top-80 right-1/4 rotate-45"></div>
+        <div class="floating-element float-4 w-12 h-12 bg-white bottom-60 left-1/2 rotate-12"></div>
+        <div class="floating-element float-1 w-20 h-20 bg-white top-1/3 right-1/3 rotate-45"></div>
+        
+        <!-- Floating Triangles -->
+        <div class="floating-element float-3 w-0 h-0 top-96 left-1/4" style="border-left: 15px solid transparent; border-right: 15px solid transparent; border-bottom: 26px solid white;"></div>
+        <div class="floating-element float-5 w-0 h-0 bottom-80 right-1/2" style="border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 35px solid white;"></div>
+        
+        <!-- Pulsing Elements -->
+        <div class="floating-element pulse-element w-8 h-8 bg-white rounded-full top-1/2 left-10"></div>
+        <div class="floating-element pulse-element w-6 h-6 bg-white rounded-full top-3/4 right-1/4"></div>
+        <div class="floating-element pulse-element w-10 h-10 bg-white rounded-full bottom-1/3 left-3/4"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-sm z-50 border-b border-gray-800 relative">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">NIV</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-gray-300">Home</a>
+                    <a href="#about" class="nav-link hover:text-gray-300">About</a>
+                    <a href="#projects" class="nav-link hover:text-gray-300">Projects</a>
+                    <a href="#contact" class="nav-link hover:text-gray-300">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 hover:text-gray-300">Home</a>
+                <a href="#about" class="block py-2 hover:text-gray-300">About</a>
+                <a href="#projects" class="block py-2 hover:text-gray-300">Projects</a>
+                <a href="#contact" class="block py-2 hover:text-gray-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20 relative z-10">
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text leading-[1.1] pb-2">Nicolas Lugtu IV</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8">Data Analyst</p>
+            <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">Welcome to my portfolio! I transform complex data into actionable insights that drive business decisions. Explore my projects to see how I turn numbers into stories that matter.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">View My Work</button>
+                <button class="border border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors">Get In Touch</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-gray-900 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 gradient-text">About Me</h2>
+            <div>
+                <h3 class="text-2xl font-semibold mb-6">Data Analyst</h3>
+                <p class="text-gray-300 mb-8 text-lg leading-relaxed">I'm an IT student with a strong focus on data analytics and business intelligence. Skilled in Python, SQL, Tableau, and Excel, I specialize in transforming data into insights that drive better decisions. My goal is to apply these skills not just to solve technical problems, but to support meaningful change—helping organizations improve processes, understand people more deeply, and create lasting impact through data-driven solutions.</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <span class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">Python</span>
+                    <span class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">Power BI</span>
+                    <span class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">Tableau</span>
+                    <span class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">Excel</span>
+                    <span class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">Pandas</span>
+                    <span class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">Machine Learning</span>
+                    <span class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">Statistical Analysis (JASP)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text leading-[1.1] pb-2">My Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-gray-900 rounded-2xl border border-gray-800 p-6">
+                    <h3 class="text-xl font-semibold mb-3">Exploratory Data Analysis & Customer Segmentation using Clustering Algorithms</h3>
+                    <p class="text-gray-400 mb-4">I worked on this project for our Data Mining Principles course, where my team analyzed FinMark’s datasets using Python. I handled data cleaning, visualization, and clustering with K-Means and Hierarchical methods to identify customer behavior patterns and propose data-driven engagement strategies. <br><br></p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Python</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Jupyter</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Pandas</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Matplotlib</span>
+                    </div>
+                    <button 
+                    type="button"
+                    class="w-full bg-white text-black py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                    onclick="window.open('https://github.com/Four-TaylorsVersion/FinMark-Exploratory-Data-Analysis-Customer-Segmentation-using-Clustering-Algorithms/blob/main/FinMark%20Exploratory%20Data%20Analysis%20%26%20Customer%20Segmentation%20using%20Clustering%20Algorithms.ipynb', '_blank', 'noopener,noreferrer')"
+                    aria-label="Open project in a new tab">View Project</button>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-gray-900 rounded-2xl border border-gray-800 p-6">
+                    <h3 class="text-xl font-semibold mb-3">Forecasting Weekly Sales Transactions Using ARIMA Modeling</h3>
+                    <p class="text-gray-400 mb-4">I collaborated on building a time series model to forecast weekly sales using fictional transaction data. I helped clean and aggregate the dataset, analyzed trends, and implemented an ARIMA model optimized with auto_arima. Using Python tools like Pandas, Matplotlib, and Statsmodels, we achieved accurate forecasts and deeper insights into sales patterns.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Python</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Jupyter</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Pandas</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Matplotlib</span>
+                    </div>
+                    <button 
+                    type="button"
+                    class="w-full bg-white text-black py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                    onclick="window.open('https://github.com/Four-TaylorsVersion/FinMark-Forecasting-Weekly-Sales-Transactions-Using-ARIMA-Modeling/blob/main/FinMark_Forecasting_Weekly_Sales_Transactions_Using_ARIMA_Modeling.ipynb', '_blank', 'noopener,noreferrer')"
+                    aria-label="Open project in a new tab">View Project</button>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-gray-900 rounded-2xl border border-gray-800 p-6">
+                    <h3 class="text-xl font-semibold mb-3">Student Churn Prediction of Undergraduate Students in Mapúa Malayan Digital College  (Capstone Project)</h3>
+                    <p class="text-gray-400 mb-4">My team and I built a predictive analytics system and Power BI dashboard to identify at-risk students at Mapúa Malayan Digital College. Using Python and Microsoft Access, we trained models like Logistic Regression and Random Forest—achieving 90.26% accuracy. The system supports data-driven interventions to boost student retention.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Python</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Jupyter</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Power BI</span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Scikit-learn</span>
+                    </div>
+                    <button 
+                    type="button"
+                    class="w-full bg-white text-black py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                    onclick="window.open('https://docs.google.com/document/d/1ANo7cLJbBfuG6W9hjCKPVVEwwSVYFKNSPWGXpAafkAg/edit?usp=sharing', '_blank', 'noopener,noreferrer')"
+                    aria-label="Open project in a new tab">View Project</button>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card bg-gray-900 rounded-2xl border border-gray-800 p-6">
+                    <h3 class="text-xl font-semibold mb-3">The Top 100 Steam Games and their Genres - July 2024</h3>
+                    <p class="text-gray-400 mb-4">For this project, I analyzed Steam's Top 100 Games (as of July 2024) to uncover trends in genres, popularity, and player preferences. Using data visualization techniques, I transformed raw gaming data into insightful graphs and interactive visuals that highlight the most dominant genres, emerging trends, and key patterns in the gaming landscape. This project showcases my skills in data analysis, storytelling with data, and Tableu.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Tableu<span>
+                        <span class="bg-white/10 text-xs px-2 py-1 rounded">Excel</span>
+                    </div>
+                    <button 
+                    type="button"
+                    class="w-full bg-white text-black py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                    onclick="window.open('https://public.tableau.com/app/profile/nicolas.lugtu.iv/viz/TheTop100SteamGames2024Official/OfficialDashboard', '_blank', 'noopener,noreferrer')"
+                    aria-label="Open project in a new tab">View Project</button>
+                </div>
+
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-900 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">Get In Touch</h2>
+            <p class="text-xl text-gray-300 mb-12">Ready to collaborate on data-driven solutions? Let's connect and discuss how I can help turn your data into actionable insights!</p>
+            <div class="space-y-6">
+                <div class="flex items-center justify-center gap-3 text-lg">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                    <span class="text-gray-300">E-mail:</span>
+                    <a href="mailto:nicolasiv123@gmail.com" class="text-white hover:text-gray-300 transition-colors">nicolasiv123@gmail.com</a>
+                </div>
+                <div class="flex items-center justify-center gap-3 text-lg">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                    </svg>
+                    <span class="text-gray-300">Contact Number:</span>
+                    <a href="tel:09692410850" class="text-white hover:text-gray-300 transition-colors">09692410850</a>
+                </div>
+                <div class="flex items-center justify-center gap-3 text-lg">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">LinkedIn:</span>
+                    <a href="https://www.linkedin.com/in/nicolas-lugtu-iv/" target="_blank" class="text-white hover:text-gray-300 transition-colors">nicolas-lugtu-iv</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-800 relative z-10">
+        <div class="max-w-6xl mx-auto text-center text-gray-400">
+            <p>&copy; 2026 Nicolas Lugtu IV. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Hero buttons
+        document.querySelectorAll('#home button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent.includes('View My Work')) {
+                    document.querySelector('#projects').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    document.querySelector('#contact').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981256f3a4e3fee0',t:'MTc1ODIxNDE5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
